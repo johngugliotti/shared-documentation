@@ -27,13 +27,8 @@ This table defines the structural traits of a given time series. It maps the `se
 | **`series_id`** | VARCHAR(17) | Primary Key | Master identifier for the overarching dataset join. | `CUUR0000SA0` |
 | **`area_code`** | CHAR(4) | Foreign Key | Links to the geographical area dimension lookup table. | `0000` (U.S. City Average), `S49E` (San Diego) |
 | **`item_code`** | VARCHAR(10) | Foreign Key | Links to the distinct item category/basket breakdown. | `SA0` (All Items), `SAF1` (Food) |
-| **`seasonal`** | CHAR(1) | Dimension | Designates whether the observations filter out predictable calendar-based patterns. | `S` (Seasonally Adjusted)<br>
-
-<br>
-`U` (Not Seasonally Adjusted) |
-| **`periodicity_code`** | CHAR(1) | Dimension | Tracks how frequently the index updates. | `R` (Regularly/Monthly)<br>
-
-<br>`S` (Semi-Annually) |
+| **`seasonal`** | CHAR(1) | Dimension | Designates whether the observations filter out predictable calendar-based patterns. | `S` (Seasonally Adjusted), `U` (Not Seasonally Adjusted) |
+| **`periodicity_code`** | CHAR(1) | Dimension | Tracks how frequently the index updates. | `R` (Regularly/Monthly) `S` (Semi-Annually) |
 | **`base_period`** | VARCHAR(20) | Attribute | The reference period assigned a value index benchmark of 100. | `1982-84=100` |
 | **`series_title`** | VARCHAR(255) | Attribute | Full, human-readable description of the dimension intersection. | `"All items in U.S. city average, all urban consumers, not seasonally adjusted"` |
 | **`begin_year`** | INT | Attribute | The historical start date of the time series. | `1913` |
