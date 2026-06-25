@@ -25,12 +25,8 @@ This table serves as the primary master catalog defining what a particular `seri
 | Field Name | Data Type | Keys / Relations | Description | Example / Allowed Values |
 | --- | --- | --- | --- | --- |
 | **`series_id`** | VARCHAR(20) | Primary Key | Master unique identifier for the time series. | `LNS14000000` |
-| **`survey_id`** | CHAR(2) | Dimension | Identifies the originating operational program. | `LN` (Current Population Survey)<br>
-
-<br>`LA` (Local Area Unemployment Stats) |
-| **`seasonal`** | CHAR(1) | Dimension | Shows if raw calendar noise or seasonal hiring patterns have been smoothed out. | `S` (Seasonally Adjusted)<br>
-
-<br>`U` (Not Seasonally Adjusted) |
+| **`survey_id`** | CHAR(2) | Dimension | Identifies the originating operational program. | `LN` (Current Population Survey) `LA` (Local Area Unemployment Stats) |
+| **`seasonal`** | CHAR(1) | Dimension | Shows if raw calendar noise or seasonal hiring patterns have been smoothed out. | `S` (Seasonally Adjusted) `U` (Not Seasonally Adjusted) |
 | **`area_code`** | VARCHAR(15) | Foreign Key | Maps directly to geographic classification tables (crucial for LAUS). | `` (Blank for National), `CN0401300000000` (Maricopa County, AZ) |
 | **`measure_code`** | CHAR(2) | Foreign Key | The type of labor market metric being explicitly quantified. | `03` (Unemployment Rate), `06` (Labor Force) |
 | **`series_title`** | VARCHAR(255) | Attribute | Descriptive, human-readable title specifying demographics, metrics, and location boundaries. | `"Unemployment Rate - 16 Years & Over, Seasonally Adjusted"` |
@@ -38,6 +34,7 @@ This table serves as the primary master catalog defining what a particular `seri
 | **`end_year`** | INT | Attribute | The most recent or current year of active tracking. | `2026` |
 
 ---
+
 
 ## 3. Sub-Dimension Lookups (Measure and Area)
 
